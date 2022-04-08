@@ -1,18 +1,74 @@
 const express = require('express');
-const logger = require('./logger')
-
+//const welcome = require('../logger/logger.js');
+//const sonu=require('../util/helper.js');
+//const trim=require('../validator/formatter.js');
+const lodash= require('lodash');
 const router = express.Router();
 
-router.get('/test-me', function (req, res) {
-    console.log('------------------')
-    console.log(req)
-    console.log('------------------')
-    console.log('These are the request query parameters: ', req.query)
-    res.send('My first ever api!')
+const arr=["manish","sonu","sandeep","anjali","monu","sanjay","bandhan","mannu","shrati","nitish"]
+router.get('/all-candidates', function (req, res) {
+    
+    res.send(arr)
+});
+
+router.get('/candidates', function (req, res) {
+    let arr2 = []
+    if(req.query.count>0 && req.query.count<=10)
+    for(let i=0; i<req.query.count;i++){
+        arr2.push(arr[i])
+    }res.send(arr2)
+});
+
+router.get('/sonu', function (req, res) {
+    welcome.welcome()
+    res.send('My second ever api!')
 });
 
 
+router.get('/test-me5', function (req, res) {
+    sonu.sonu()
+    sonu.printMonth()
+    sonu.getBatchInfo()
+    //console.log(req.body.batch)
+    res.send('My final ever api!')
+});
 
+router.get('/test-me3', function (req, res) {
+    trim.trim()
+    trim.toLowerCase()
+    trim.toUppercase()
+    res.send('My first ever api!')
+});
+
+router.get('/hello', function (req, res) {
+    const month =["jan","feb","march","april","may","jun","july","agust","sept","oct","nov","dec"]
+    console.log(lodash.chunk(month,3))
+
+    const odd=[1,3,5,7,9,11,13,15,17,19]
+    console.log(lodash.tail(odd))
+
+const arr1 = [1,2,3,4,5,6,7];
+const arr2 = [1,4,2,5,67,8];
+const arr3=[5,8,6,9,0,3,4];
+const arr4 = [54,76,09,89,3];
+const arr5 = [34,23,12,4,7,9]
+console.log(lodash.union(arr1,arr2,arr3,arr4,arr5))
+
+
+
+const obj = [
+    ['horror','The shinning'],
+    ['drama','Titanic'],
+    ['thriller','shutter Island'],
+    ['fantacy','pans labyrinth']
+]
+
+let a = lodash.fromPairs(obj);
+console.log(a)
+
+    res.send('My first ever api!')
+
+});
 
 module.exports = router;
 // adding this comment for no reason
