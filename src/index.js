@@ -7,6 +7,14 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// app.use(function (req, res, next){
+//     console.log('Request URL:', req.originalUrl)
+//     console.log('Request Type:', req.method) // use to check method
+//  const date = new Date().toLocaleString()
+//     console.log(date,req.ip,req.url)
+//     next()
+// })
+
 
 mongoose.connect("mongodb+srv://functionup-cohort:G0Loxqc9wFEGyEeJ@cluster0.rzotr.mongodb.net/Pritesh8769811-DB?retryWrites=true&w=majority", {
     useNewUrlParser: true
@@ -17,6 +25,8 @@ mongoose.connect("mongodb+srv://functionup-cohort:G0Loxqc9wFEGyEeJ@cluster0.rzot
 app.use (
     function (req, res, next) {
         console.log ("inside GLOBAL MW");
+        const date = new Date().toLocaleString()
+    console.log(date,req.ip,req.url)
         next();
   }
   );

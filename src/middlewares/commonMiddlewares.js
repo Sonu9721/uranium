@@ -7,7 +7,18 @@ const mid1= function ( req, res, next) {
 
 const mid2= function ( req, res, next) {
     console.log("Hi I am a middleware named Mid2")
-    next()
+    //logic
+    let loggedIn=true 
+
+    if(loggedIn==true){
+        console.log("Welcome you are a valid user")
+        next()
+    } else{
+        res.send("please login or register")
+        console.log("you are not a valid user")
+    }
+   
+
 }
 
 const mid3= function ( req, res, next) {
