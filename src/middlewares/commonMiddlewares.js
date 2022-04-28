@@ -28,6 +28,6 @@ if(isFreeAppUser != undefined && isFreeAppUser != ''){
 }
 
 
-module.exports.isFreeAppUserMiddleware = isFreeAppUserMiddleware
+module.exports.isFreeAppUserMiddlewares = isFreeAppUserMiddleware
 
 module.exports.mid4= mid4

@@ -1,5 +1,5 @@
 const userModel = require('../models/userModel');
-const productModel = require('../models/productModel.js');
+const productModel = require('../models/prodectModel.js');
 const OrderModel= require("../models/orderModel.js");
 
 const createOrder= async function (req, res) {
